@@ -39,7 +39,7 @@ jobs:
         
       - name: Terraform init
         id: init
-        run: terrafrom init -backedn-config="bucket=$BUCKET_TF_STATE"
+        run: terrafrom init -backend-config="bucket=$BUCKET_TF_STATE"
 
       - name: Terraform fmt
         id: fmt
