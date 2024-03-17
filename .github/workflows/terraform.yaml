@@ -42,7 +42,7 @@ jobs:
         run: terrafrom init -backedn-config="bucket=$BUCKET_TF_STATE"
 
       - name: Terraform fmt
-        id: init
+        id: fmt
         run: terrafrom fmt
 
       - name: Terraform validate
@@ -50,7 +50,7 @@ jobs:
         run: terrafrom validate
 
       - name: Terraform plan
-        id: init
+        id: plan
         run: terrafrom plan -no-color -input=false -out planfile
         continue-on-error: true
       
