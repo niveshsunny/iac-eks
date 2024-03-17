@@ -28,7 +28,7 @@ terraform {
 
   backend "s3" {
     bucket = "nivesh-tfstate"
-    key    = "terraform.tfstate"
+    key    = "gitops-nivesh"
     region = "us-east-1"
   }
 
