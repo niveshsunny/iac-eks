@@ -34,25 +34,23 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2   
       
-      - name: Terraform setup
-        uses: hashicorp/setup-terraform@v2
-        
       - name: Terraform init
         id: init
-        run: terrafrom init -backend-config="bucket=$BUCKET_TF_STATE"
+        run: terraform init -backend-config="bucket=$BUCKET_TF_STATE"
 
       - name: Terraform fmt
         id: fmt
-        run: terrafrom fmt
+        run: terraform fmt
 
       - name: Terraform validate
         id: validate
-        run: terrafrom validate
+        run: terraform validate
 
       - name: Terraform plan
         id: plan
-        run: terrafrom plan -no-color -input=false -out planfile
+        run: terraform plan -no-color -input=false -out planfile
         continue-on-error: true
+
       
       - name: terraform plan steps
         if: steps.plan.outcome == 'failure'
